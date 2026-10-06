@@ -1,0 +1,13 @@
+body {
+    background-color: #dce5ff;
+    font-family: "Arial", sans-serif;
+    color: #005205
+}
+
+h1, h2 {
+    font-family: "Courier New", sans-serif;
+}
+
+h6 {
+    font-style: large;
+}
