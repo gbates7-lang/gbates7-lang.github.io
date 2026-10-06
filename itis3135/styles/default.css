@@ -1,7 +1,9 @@
 body {
     background-color: #dce5ff;
     font-family: "Arial", sans-serif;
-    color: #005205
+    color: #005205;
+    margin: auto;
+    max-width: 600px;
 }
 
 h1, h2 {
@@ -9,5 +11,9 @@ h1, h2 {
 }
 
 h6 {
-    font-style: large;
+    font-size: 1.5rem;
+    white-space: nowrap;
+}
+
+@media screen {
 }
