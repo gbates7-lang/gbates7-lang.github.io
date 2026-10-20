@@ -6,7 +6,6 @@
     <title>Video Games - What</title>
     <!-- Favicon: Inline SVG data URI representing a pixelated game controller -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231e1b4b'/><path d='M7 11h18v10H7z' fill='%234338ca'/><circle cx='11' cy='16' r='2' fill='%23a5b4fc'/><rect x='19' y='14' width='2' height='4' fill='%23a5b4fc'/><rect x='18' y='15' width='4' height='2' fill='%23a5b4fc'/><circle cx='23' cy='15' r='1' fill='%2334d399'/><circle cx='23' cy='18' r='1' fill='%23f87171'/></svg>">
-    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
     <style>
         :root {
             --bg-color: #0f172a;
@@ -49,14 +48,6 @@
             font-family: 'Arial', sans-serif;
         }
 
-        .header-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
         h1 {
             font-size: 2.2rem;
             color: #f8fafc;
@@ -83,7 +74,7 @@
         }
 
         /* Primary App Navigation */
-        nav.app-nav {
+        .app-nav {
             display: flex;
             gap: 0.75rem;
             flex-wrap: wrap;
@@ -100,7 +91,13 @@
             transition: all 0.2s ease-in-out;
         }
 
-        .nav-btn:hover, .nav-btn.active {
+        .nav-btn:hover {
+            background-color: var(--primary-color);
+            color: #fffff0;
+            box-shadow: 0 0 12px var(--accent-glow);
+        }
+        
+        .nav-btn:active {
             background-color: var(--primary-color);
             color: #fffff0;
             box-shadow: 0 0 12px var(--accent-glow);
@@ -110,7 +107,6 @@
         main {
             flex: 1;
             max-width: 900px;
-            width: 100%;
             margin: 2rem auto;
             padding: 0 1.5rem;
         }
@@ -131,7 +127,7 @@
             animation: fadeIn 0.3s ease-in-out;
         }
 
-        .section-page.active {
+        .section-page:active {
             display: block;
         }
 
@@ -180,14 +176,6 @@
             margin-top: 0.5rem;
             font-weight: 600;
             color: #f1f5f9;
-        }
-
-        .ai-note {
-            display: block;
-            margin-top: 0.25rem;
-            font-style: italic;
-            color: var(--text-muted);
-            font-size: 0.9rem;
         }
 
         /* Lists & Tables */
@@ -241,18 +229,17 @@
             text-decoration: underline;
         }
     </style>
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
     <header>
-        <div class="header-top">
-            <h1>Video Games</h1>
-            <div class="course-secondary-menu">
+            <h1 class="header-top">Video Games</h1>
+            <p class="course-secondary-menu">
                 Course Navigation: 
                 <a href="#what">What</a> | 
                 <a href="#hobby">Hobby</a>
-            </div>
-        </div>
+            </p>
         <nav class="app-nav" aria-label="Sections Navigation">
             <button class="nav-btn active" onclick="switchSection('what', '🎮', this)">What</button>
             <button class="nav-btn" onclick="switchSection('who', '🕹️', this)">Who</button>
@@ -271,9 +258,9 @@
             <p>Video games are a form of interactive digital media where players engage with virtual environments.</p>
             
             <figure>
-                <!-- Resized and styled photorealistic gaming setup placeholder graphic -->
                 <img src="./images/pexels-apple-1282241.jpg" alt="A laptop.">
                 <figcaption>A personal computer</figcaption>
+                <p><i>https://pixabay.com/photos/apple-smartphone-desk-laptop-1282241/</i></p>
             </figure>
 
             <ul>
@@ -285,12 +272,16 @@
         <!-- Who SECTION -->
         <section id="who" class="section-page">
             <h2>Who</h2>
-            <p>I've played video games since I was a child and __.</p>
+            <p>I've played video games since I was a child and since then I've loved playing them.</p>
 
             <p>One of the first games I've ever played was Sonic The Hedgehog (2006), and that game does suck really bad and I could never get past the first stage. I did play better games after that though.</p>
 
             <p>I've played a lot of RPGs and platformers.</p>
-            <figure></figure>
+            <figure>
+                <img src="./images/pexels-apple-1282241.jpg" alt="A laptop.">
+                <figcaption>A personal computer</figcaption>
+                <p><i>https://pixabay.com/photos/apple-smartphone-desk-laptop-1282241/</i></p>
+            </figure>
         </section>
 
         <!-- BEST TIMES SECTION -->
@@ -299,9 +290,9 @@
             <p>I would say that I try to only play video games when I have free time and when I've already spent time on my responsibilities. Besides that, there's not really a specific time when I play games.</p>
             
             <figure>
-                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='338' viewBox='0 0 600 338'><rect width='600' height='338' fill='%231e293b'/><circle cx='300' cy='169' r='100' fill='%238b5cf6' opacity='0.2'/><text x='50%' y='50%' fill='%2394a3b8' font-family='sans-serif' font-size='20' text-anchor='middle' dominant-baseline='middle'>Late Night Gaming Session</text></svg>" alt="Cozy room lit by screen glow during late evening">
-                <figcaption>The Quiet Focus of Late-Night Gaming</figcaption>
-                <span class="ai-note">AI Prompt: Photorealistic cozy room at night, soft screen glow reflecting off a wall, peaceful atmosphere, cinematic lighting, 4k.</span>
+                <img src="./images/pexels-apple-1282241.jpg" alt="A laptop.">
+                <figcaption>A personal computer</figcaption>
+                <p><i>https://pixabay.com/photos/apple-smartphone-desk-laptop-1282241/</i></p>
             </figure>
 
             <ul>
@@ -337,6 +328,7 @@
                     </tr>
                 </tbody>
             </table>
+            <i>Table structure put in page by Gemini</i>
             </figure>
 
             <p>Choosing the right location ensures that your posture remains healthy and your gaming sessions stay comfortable for hours on end.</p>
@@ -348,9 +340,9 @@
             <p>Getting started in video games involves choosing your preferred platform—whether PC, console, or mobile—and exploring genres that match your personal taste.</p>
             
             <figure>
-                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='338' viewBox='0 0 600 338'><rect width='600' height='338' fill='%231e293b'/><circle cx='300' cy='169' r='100' fill='%2306b6d4' opacity='0.2'/><text x='50%' y='50%' fill='%2394a3b8' font-family='sans-serif' font-size='20' text-anchor='middle' dominant-baseline='middle'>Gamepad Controller in Hands</text></svg>" alt="Close up of hands holding a wireless controller">
-                <figcaption>Tactile Control and Precision</figcaption>
-                <span class="ai-note">AI Prompt: Photorealistic macro shot of hands holding a modern ergonomic wireless gamepad controller, shallow depth of field, studio lighting.</span>
+                <img src="./images/pexels-apple-1282241.jpg" alt="A laptop.">
+                <figcaption>A personal computer</figcaption>
+                <p><i>https://pixabay.com/photos/apple-smartphone-desk-laptop-1282241/</i></p>
             </figure>
 
             <ul>
@@ -367,7 +359,11 @@
             
             <p>Playing games also has been proven to help with problem-solving skills.</p>
 
-            <figure></figure>
+            <figure>
+                <img src="./images/pexels-apple-1282241.jpg" alt="A laptop.">
+                <figcaption>A personal computer</figcaption>
+                <p><i>https://pixabay.com/photos/apple-smartphone-desk-laptop-1282241/</i></p>
+            </figure>
         </section>
 
         <!-- AI PROMPTS SECTION -->
@@ -375,7 +371,11 @@
             <h2>AI Prompts</h2>
             <p>I used Gemini to get the general webpage up and it also gave me image suggestions.</p>
             <p>It also gave the site colors that I like enough to keep.</p>
-            <figure></figure>
+            <figure>
+                <img src="./images/pexels-apple-1282241.jpg" alt="A laptop.">
+                <figcaption>A personal computer</figcaption>
+                <p><i>https://pixabay.com/photos/apple-smartphone-desk-laptop-1282241/</i></p>
+            </figure>
         </section>
     </main>
 
@@ -386,13 +386,11 @@
         </blockquote>
     </footer>
 
-    <script src="https://divonbriesen.github.io/teaching/tools/standards-check.js" defer></script>
-
     <script>
         function switchSection(sectionId, dividerSymbol, btnElement) {
             // Hide all sections
             const sections = document.querySelectorAll('.section-page');
-            sections.forEach(sec => sec.classList.remove('active'));
+            sections.forEach((sec) => sec.classList.remove('active'));
 
             // Show selected section
             const targetSection = document.getElementById(sectionId);
@@ -402,7 +400,7 @@
 
             // Update active button state
             const buttons = document.querySelectorAll('.nav-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
+            buttons.forEach((btn) => btn.classList.remove('active'));
             if (btnElement) {
                 btnElement.classList.add('active');
             }
@@ -412,7 +410,6 @@
             document.title = `Video Games — ${dividerSymbol} ${h2Text}`;
         }
     </script>
+    <script src="https://divonbriesen.github.io/teaching/tools/standards-check.js" defer></script>
 </body>
 </html>
-
-```
