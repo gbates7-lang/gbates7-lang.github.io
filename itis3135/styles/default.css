@@ -15,5 +15,12 @@ h6 {
     white-space: nowrap;
 }
 
+a {
+    color: #0000a0
+}
+
 @media screen {
+    body {
+        width: 100%;
+    }
 }

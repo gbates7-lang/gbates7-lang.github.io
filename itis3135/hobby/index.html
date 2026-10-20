@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Games - What</title>
+    <!-- Favicon: Inline SVG data URI representing a pixelated game controller -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231e1b4b'/><path d='M7 11h18v10H7z' fill='%234338ca'/><circle cx='11' cy='16' r='2' fill='%23a5b4fc'/><rect x='19' y='14' width='2' height='4' fill='%23a5b4fc'/><rect x='18' y='15' width='4' height='2' fill='%23a5b4fc'/><circle cx='23' cy='15' r='1' fill='%2334d399'/><circle cx='23' cy='18' r='1' fill='%23f87171'/></svg>">
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --surface-color: #1e293b;
+            --primary-color: #8b5cf6;
+            --secondary-color: #06b6d4;
+            --text-color: #e2e8f0;
+            --text-muted: #94a3b8;
+            --accent-glow: rgba(139, 92, 246, 0.3);
+            --font-main: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            max-width: auto;
+            margin: auto;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--surface-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding: 1.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            box-shadow: 0 4px 20px var(--accent-glow);
+            font-family: 'Arial', sans-serif;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: #f8fafc;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        /* Secondary Menu (Course Site simulation) */
+        .course-secondary-menu {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .course-secondary-menu a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            margin-left: 0.5rem;
+            font-weight: 600;
+        }
+
+        .course-secondary-menu a:hover {
+            text-decoration: underline;
+        }
+
+        /* Primary App Navigation */
+        nav.app-nav {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            background: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--text-color);
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background-color: var(--primary-color);
+            color: #fffff0;
+            box-shadow: 0 0 12px var(--accent-glow);
+        }
+
+        /* Main Content Layout */
+        main {
+            flex: 1;
+            max-width: 900px;
+            width: 100%;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        @media screen and (min-width: 480px) {
+            main {
+                width: 100%;
+            }
+        }
+
+        .section-page {
+            display: none;
+            background-color: var(--surface-color);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .section-page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            color: var(--text-color);
+        }
+
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #38bdf8;
+            text-decoration: underline;
+        }
+
+        /* Figures & Images */
+        figure {
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        figcaption {
+            margin-top: 0.5rem;
+            font-weight: 600;
+            color: #f1f5f9;
+        }
+
+        .ai-note {
+            display: block;
+            margin-top: 0.25rem;
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Lists & Tables */
+        ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1.2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background-color: rgba(15, 23, 42, 0.6);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        th {
+            background-color: rgba(139, 92, 246, 0.2);
+            color: #f8fafc;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--surface-color);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            padding: 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: auto;
+        }
+
+        footer a {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-top">
+            <h1>Video Games</h1>
+            <div class="course-secondary-menu">
+                Course Navigation: 
+                <a href="#what">What</a> | 
+                <a href="#hobby">Hobby</a>
+            </div>
+        </div>
+        <nav class="app-nav" aria-label="Sections Navigation">
+            <button class="nav-btn active" onclick="switchSection('what', '🎮', this)">What</button>
+            <button class="nav-btn" onclick="switchSection('who', '🕹️', this)">Who</button>
+            <button class="nav-btn" onclick="switchSection('when', '⏳', this)">When</button>
+            <button class="nav-btn" onclick="switchSection('where', '🗺️', this)">Where</button>
+            <button class="nav-btn" onclick="switchSection('how', '⚡', this)">How</button>
+            <button class="nav-btn" onclick="switchSection('why', '💡', this)">Why</button>
+            <button class="nav-btn" onclick="switchSection('ai-prompts', '💡', this)">AI Prompts</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HOME / WHAT SECTION -->
+        <section id="what" class="section-page active">
+            <h2>What</h2>
+            <p>Video games are a form of interactive digital media where players engage with virtual environments.</p>
+            
+            <figure>
+                <!-- Resized and styled photorealistic gaming setup placeholder graphic -->
+                <img src="./images/pexels-apple-1282241.jpg" alt="A laptop.">
+                <figcaption>A personal computer</figcaption>
+            </figure>
+
+            <ul>
+                <li>Engaging interactive storytelling</li>
+                <li>Challenges that test problem-solving, reflexes, and planning.</li>
+            </ul>
+        </section>
+
+        <!-- Who SECTION -->
+        <section id="who" class="section-page">
+            <h2>Who</h2>
+            <p>I've played video games since I was a child and __.</p>
+
+            <p>One of the first games I've ever played was Sonic The Hedgehog (2006), and that game does suck really bad and I could never get past the first stage. I did play better games after that though.</p>
+
+            <p>I've played a lot of RPGs and platformers.</p>
+            <figure></figure>
+        </section>
+
+        <!-- BEST TIMES SECTION -->
+        <section id="when" class="section-page">
+            <h2>When</h2>
+            <p>I would say that I try to only play video games when I have free time and when I've already spent time on my responsibilities. Besides that, there's not really a specific time when I play games.</p>
+            
+            <figure>
+                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='338' viewBox='0 0 600 338'><rect width='600' height='338' fill='%231e293b'/><circle cx='300' cy='169' r='100' fill='%238b5cf6' opacity='0.2'/><text x='50%' y='50%' fill='%2394a3b8' font-family='sans-serif' font-size='20' text-anchor='middle' dominant-baseline='middle'>Late Night Gaming Session</text></svg>" alt="Cozy room lit by screen glow during late evening">
+                <figcaption>The Quiet Focus of Late-Night Gaming</figcaption>
+                <span class="ai-note">AI Prompt: Photorealistic cozy room at night, soft screen glow reflecting off a wall, peaceful atmosphere, cinematic lighting, 4k.</span>
+            </figure>
+
+            <ul>
+                <li><strong>Weekend Mornings:</strong> Perfect for immersive, deep-dive RPG campaigns when your mind is fresh.</li>
+                <li><strong>Late Evenings:</strong> Great for unwinding with casual titles or catching up with online squadmates after tasks are completed.</li>
+            </ul>
+        </section>
+
+        <!-- LOCATIONS SECTION -->
+        <section id="where" class="section-page">
+            <h2>Where</h2>
+            <p>Depending on the console you're playing on, you could play in many different locations.</p>
+            
+            <figure>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Setup Location</th>
+                        <th>Primary Advantage</th>
+                        <th>Best Suited For</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Computer or Console</td>
+                        <td>High performance</td>
+                        <td>Competitive multiplayer and heavy simulation games</td>
+                    </tr>
+                    <tr>
+                        <td>Portable Handheld</td>
+                        <td>Mobility and flexibility</td>
+                        <td>Playing during travel</td>
+                    </tr>
+                </tbody>
+            </table>
+            </figure>
+
+            <p>Choosing the right location ensures that your posture remains healthy and your gaming sessions stay comfortable for hours on end.</p>
+        </section>
+
+        <!-- HOW SECTION -->
+        <section id="how" class="section-page">
+            <h2>How</h2>
+            <p>Getting started in video games involves choosing your preferred platform—whether PC, console, or mobile—and exploring genres that match your personal taste.</p>
+            
+            <figure>
+                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='338' viewBox='0 0 600 338'><rect width='600' height='338' fill='%231e293b'/><circle cx='300' cy='169' r='100' fill='%2306b6d4' opacity='0.2'/><text x='50%' y='50%' fill='%2394a3b8' font-family='sans-serif' font-size='20' text-anchor='middle' dominant-baseline='middle'>Gamepad Controller in Hands</text></svg>" alt="Close up of hands holding a wireless controller">
+                <figcaption>Tactile Control and Precision</figcaption>
+                <span class="ai-note">AI Prompt: Photorealistic macro shot of hands holding a modern ergonomic wireless gamepad controller, shallow depth of field, studio lighting.</span>
+            </figure>
+
+            <ul>
+                <li>Research hardware or cloud-streaming options that fit your budget.</li>
+                <li>Sample diverse genres (strategy, puzzle, adventure) to discover what excites you most.</li>
+                <li>Join communities or forums to share tips, tricks, and recommendations with fellow enthusiasts.</li>
+            </ul>
+        </section>
+
+        <!-- WHY SECTION -->
+        <section id="why" class="section-page">
+            <h2>Why</h2>
+            <p>Playing video games helps me to reduce my stress.</p>
+            
+            <p>Playing games also has been proven to help with problem-solving skills.</p>
+
+            <figure></figure>
+        </section>
+
+        <!-- AI PROMPTS SECTION -->
+        <section id="ai-prompts" class="section-page">
+            <h2>AI Prompts</h2>
+            <p>I used Gemini to get the general webpage up and it also gave me image suggestions.</p>
+            <p>It also gave the site colors that I like enough to keep.</p>
+            <figure></figure>
+        </section>
+    </main>
+
+    <footer>
+        <p>Site Created by <a href="../gavinbatesenterprises.co.html">Gavin Bates Enterprises</a> &copy;2026</p>
+        <blockquote>
+            "Put a quote here pleaseeeee"
+        </blockquote>
+    </footer>
+
+    <script src="https://divonbriesen.github.io/teaching/tools/standards-check.js" defer></script>
+
+    <script>
+        function switchSection(sectionId, dividerSymbol, btnElement) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section-page');
+            sections.forEach(sec => sec.classList.remove('active'));
+
+            // Show selected section
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+
+            // Update active button state
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            if (btnElement) {
+                btnElement.classList.add('active');
+            }
+
+            // Update document title dynamically: "Video Games — [Divider] [Section H2]"
+            const h2Text = targetSection ? targetSection.querySelector('h2').innerText : 'Home';
+            document.title = `Video Games — ${dividerSymbol} ${h2Text}`;
+        }
+    </script>
+</body>
+</html>
+
+```
