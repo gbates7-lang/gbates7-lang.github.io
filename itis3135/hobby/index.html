@@ -91,17 +91,12 @@
             transition: all 0.2s ease-in-out;
         }
 
-        .nav-btn:hover {
+        .nav-btn:hover, .nav-btn:active {
             background-color: var(--primary-color);
             color: #fffff0;
             box-shadow: 0 0 12px var(--accent-glow);
         }
         
-        .nav-btn:active {
-            background-color: var(--primary-color);
-            color: #fffff0;
-            box-shadow: 0 0 12px var(--accent-glow);
-        }
 
         /* Main Content Layout */
         main {
@@ -127,7 +122,7 @@
             animation: fadeIn 0.3s ease-in-out;
         }
 
-        .section-page:active {
+        .section-page.active {
             display: block;
         }
 
@@ -390,7 +385,7 @@
         function switchSection(sectionId, dividerSymbol, btnElement) {
             // Hide all sections
             const sections = document.querySelectorAll('.section-page');
-            sections.forEach((sec) => sec.classList.remove('active'));
+            sections.forEach((sec) => (sec.classList.remove('active')));
 
             // Show selected section
             const targetSection = document.getElementById(sectionId);
@@ -400,7 +395,7 @@
 
             // Update active button state
             const buttons = document.querySelectorAll('.nav-btn');
-            buttons.forEach((btn) => btn.classList.remove('active'));
+            buttons.forEach((btn) => (btn.classList.remove('active')));
             if (btnElement) {
                 btnElement.classList.add('active');
             }
